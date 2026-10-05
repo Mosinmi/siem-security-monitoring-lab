@@ -1,0 +1,5 @@
+index=security_lab EventCode=4104 earliest=-5m latest=now
+| eval suspicious=if(match(Message,"(?i)(invoke-expression|invoke-webrequest|downloadstring|frombase64string|encodedcommand|net\.webclient|start-bitstransfer|\biex\b)"),1,0)
+| where suspicious=1
+| table _time host EventCode Message
+| sort - _time

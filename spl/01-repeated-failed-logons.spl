@@ -1,0 +1,5 @@
+index=security_lab EventCode=4625
+| bin _time span=5m
+| stats count as failed_logons values(Account_Name) as accounts values(Failure_Reason) as failure_reasons by _time Workstation_Name
+| where failed_logons >= 3
+| sort - _time

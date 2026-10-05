@@ -1,0 +1,5 @@
+index=security_lab EventCode=4799 earliest=-5m latest=now
+| bin _time span=5m
+| stats count as group_enumerations values(Process_Name) as processes values(Account_Name) as accounts by _time host
+| where group_enumerations >= 5
+| sort - _time

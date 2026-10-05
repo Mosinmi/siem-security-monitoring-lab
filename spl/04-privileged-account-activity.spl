@@ -1,0 +1,4 @@
+index=security_lab EventCode=4672 earliest=-5m latest=now
+| where Account_Name!="SYSTEM"
+| table _time host EventCode Account_Name Account_Domain Logon_ID SubjectUserName SubjectDomainName PrivilegeList
+| sort - _time

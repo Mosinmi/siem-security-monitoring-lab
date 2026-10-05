@@ -1,0 +1,3 @@
+index=security_lab EventCode=4732
+| table _time host EventCode Account_Name MemberName TargetUserName TargetDomainName
+| sort - _time

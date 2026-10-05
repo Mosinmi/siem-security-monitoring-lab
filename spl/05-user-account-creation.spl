@@ -1,0 +1,3 @@
+index=security_lab EventCode=4720 earliest=-10m latest=now
+| table _time host EventCode Account_Name TargetUserName TargetDomainName
+| sort - _time
